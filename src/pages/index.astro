@@ -50,7 +50,9 @@ const q = Astro.url.searchParams.get("q");
       </div>
     </section>
 
-    <section class="grid grid-cols-3 gap-10 max-w-screen-2xl mx-auto mt-20">
+    <section
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-screen-2xl mx-auto mt-20"
+    >
       {
         data
           .filter((d) => {
