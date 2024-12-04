@@ -1,0 +1,28 @@
+---
+export const prerender = false;
+
+import { Badge } from "./ui/badge";
+import { clsx } from "clsx";
+
+interface Props {
+  val: string;
+  q: string | null;
+}
+
+const { val, q } = Astro.props;
+---
+
+<a href={val === q ? "/" : `/?q=${val}`} data-astro-history="replace">
+  <Badge
+    client:only="react"
+    className={clsx(
+      "rounded-full",
+      val === q
+        ? "bg-primary text-primary-foreground"
+        : "bg-muted text-muted-foreground",
+    )}
+    variant="default"
+  >
+    {val}
+  </Badge>
+</a>

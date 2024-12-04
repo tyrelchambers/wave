@@ -1,18 +1,17 @@
 ---
 export const prerender = false;
 import Wrapper from "../layouts/Wrapper.astro";
-import { Badge } from "@/components/ui/badge";
 import data from "../data/data.ts";
 import { collectAll } from "../lib/utils";
 import Item from "@/components/Item.astro";
 import { Separator } from "@/components/ui/separator";
+import Filter from "@/components/filter.astro";
 
 const tags = collectAll(data, "tags");
 const integrations = collectAll(data, "integrations");
 const plans = collectAll(data, "plans");
 
 const q = Astro.url.searchParams.get("q");
-console.log(q);
 ---
 
 <Wrapper title="Home">
@@ -27,36 +26,28 @@ console.log(q);
     <section class="w-full max-w-screen-2xl mx-auto mt-10">
       <div class="flex flex-col">
         <div class="flex gap-2 flex-wrap">
-          {
-            tags.map((tag) => (
-              // @ts-expect-error
-              <Badge className="rounded-full" variant="default">
-                {tag}
-              </Badge>
-            ))
-          }
+          {tags.map((tag) => <Filter val={tag} q={q} />)}
           {
             integrations.map((integration) => (
-              // @ts-expect-error
-              <Badge className="rounded-full" variant="secondary">
-                {integration}
-              </Badge>
+              <Filter val={integration} q={q} />
             ))
           }
-          {
-            plans.map((plan) => (
-              // @ts-expect-error
-              <Badge className="rounded-full" variant="outline">
-                {plan}
-              </Badge>
-            ))
-          }
+          {plans.map((plan) => <Filter val={plan} q={q} />)}
         </div>
       </div>
     </section>
 
     <section class="grid grid-cols-3 gap-10 max-w-screen-2xl mx-auto mt-20">
-      {data.map((item) => <Item item={item} />)}
+      {
+        data
+          .filter((d) => {
+            if (!q) return true;
+            if (d.tags.includes(q)) return true;
+            if (d.integrations?.includes(q)) return true;
+            if (d.plans?.includes(q)) return true;
+          })
+          .map((item) => <Item item={item} />)
+      }
     </section>
   </section>
 </Wrapper>

@@ -5,6 +5,8 @@ import db from "@astrojs/db";
 
 import react from "@astrojs/react";
 
+import node from "@astrojs/node";
+
 // https://astro.build/config
 export default defineConfig({
   integrations: [
@@ -15,4 +17,8 @@ export default defineConfig({
     db(),
     react(),
   ],
+
+  adapter: node({
+    mode: "standalone",
+  }),
 });
