@@ -3,15 +3,14 @@ export interface Data {
   description?: string;
   url: string;
   tags: Tags[];
-  plans: Plans[];
+  plans: string[];
   integrations?: Integrations[];
   image?: string;
 }
 
-type Tags = "components" | "themes" | "templates" | "color generator";
-type Plans = "free" | "paid";
+export type Tags = "components" | "themes" | "templates" | "color generator";
 
-type Integrations =
+export type Integrations =
   | "react"
   | "next.js"
   | "vue"

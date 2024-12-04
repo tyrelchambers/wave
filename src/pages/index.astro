@@ -1,7 +1,7 @@
 ---
 export const prerender = false;
 import Wrapper from "../layouts/Wrapper.astro";
-import data from "../data/data.ts";
+import data, { type Integrations, type Tags } from "../data/data.ts";
 import { collectAll } from "../lib/utils";
 import Item from "@/components/Item.astro";
 import { Separator } from "@/components/ui/separator";
@@ -42,8 +42,8 @@ const q = Astro.url.searchParams.get("q");
         data
           .filter((d) => {
             if (!q) return true;
-            if (d.tags.includes(q)) return true;
-            if (d.integrations?.includes(q)) return true;
+            if (d.tags.includes(q as Tags)) return true;
+            if (d.integrations?.includes(q as Integrations)) return true;
             if (d.plans?.includes(q)) return true;
           })
           .map((item) => <Item item={item} />)
