@@ -33,7 +33,6 @@ const { item } = Astro.props;
       {
         item.tags.length > 0 &&
           item.tags.map((tag) => (
-            // @ts-expect-error
             <Badge className="rounded-full" variant="default">
               {tag}
             </Badge>
@@ -46,7 +45,6 @@ const { item } = Astro.props;
         item.integrations &&
           item.integrations.length > 0 &&
           item.integrations?.map((int) => (
-            // @ts-expect-error
             <Badge className="rounded-full" variant="secondary">
               {int}
             </Badge>
@@ -59,7 +57,6 @@ const { item } = Astro.props;
         item.plans &&
           item.plans.length > 0 &&
           item.plans?.map((price) => (
-            // @ts-expect-error
             <Badge className="rounded-full" variant="outline">
               {price}
             </Badge>
