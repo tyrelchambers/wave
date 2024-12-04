@@ -6,6 +6,7 @@ export interface Data {
   plans: string[];
   integrations?: Integrations[];
   image?: string;
+  logo?: string;
 }
 
 export type Tags = "components" | "themes" | "templates" | "color generator";
@@ -64,7 +65,8 @@ const data: Data[] = [
       "flask",
       "blazor",
     ],
-    image: "/data/images/flowbite-logo.png",
+    logo: "/data/images/flowbite-logo.png",
+    image: "/data/screenshots/flowbite.png",
   },
   {
     name: "HyperUI",
@@ -74,6 +76,7 @@ const data: Data[] = [
     integrations: ["html", "vue", "react"],
     tags: ["components"],
     plans: ["free"],
+    image: "/data/screenshots/hyperui.png",
   },
   {
     name: "DaisyUI",
@@ -83,7 +86,8 @@ const data: Data[] = [
     tags: ["components", "themes", "templates"],
     url: "https://daisyui.com/",
     plans: ["free"],
-    image: "/data/images/daisyui.png",
+    logo: "/data/images/daisyui.png",
+    image: "/data/screenshots/daisyui.png",
   },
   {
     name: "Tailwind UI",
@@ -93,7 +97,8 @@ const data: Data[] = [
     tags: ["components", "themes", "templates"],
     plans: ["free", "paid"],
     integrations: ["react", "vue", "html"],
-    image: "/data/images/tailwindui.png",
+    logo: "/data/images/tailwindui.png",
+    image: "/data/screenshots/tailwindui.png",
   },
   {
     name: "HorizonUI",
@@ -103,7 +108,8 @@ const data: Data[] = [
     tags: ["components", "themes", "templates"],
     plans: ["free", "paid"],
     integrations: ["chakra ui", "react", "next.js"],
-    image: "/data/images/horizonui.png",
+    logo: "/data/images/horizonui.png",
+    image: "/data/screenshots/horizonui.png",
   },
   {
     name: "FloatUI",
@@ -112,7 +118,8 @@ const data: Data[] = [
     integrations: ["html", "react", "vue", "svelte"],
     tags: ["components", "templates"],
     plans: ["free"],
-    image: "/data/images/floatui.svg",
+    logo: "/data/images/floatui.svg",
+    image: "/data/screenshots/floatui.png",
   },
   {
     name: "Tailgrids",
@@ -122,7 +129,8 @@ const data: Data[] = [
     tags: ["components", "templates", "themes"],
     plans: ["free", "paid"],
     url: "https://tailgrids.com/",
-    image: "/data/images/tailgrids.svg",
+    logo: "/data/images/tailgrids.svg",
+    image: "/data/screenshots/tailgrids.png",
   },
   {
     name: "NextUI",
@@ -132,6 +140,7 @@ const data: Data[] = [
     tags: ["components"],
     plans: ["free"],
     url: "https://nextui.org/",
+    image: "/data/screenshots/nextui.png",
   },
   {
     name: "UI Colors",
@@ -139,6 +148,7 @@ const data: Data[] = [
     url: "https://uicolors.app",
     tags: ["color generator"],
     plans: ["free"],
+    image: "/data/screenshots/uicolors.png",
   },
   {
     name: "Shadcn/ui",
@@ -148,6 +158,7 @@ const data: Data[] = [
     tags: ["components"],
     integrations: ["react"],
     plans: ["free"],
+    image: "/data/screenshots/shadcn.png",
   },
 ];
 
