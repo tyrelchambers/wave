@@ -15,14 +15,16 @@ const q = Astro.url.searchParams.get("q");
 ---
 
 <Wrapper title="Home">
-  <section class="my-20 w-full flex justify-center items-center flex-col">
-    <h1 class="font-medium text-7xl mb-3">Welcome to Wave</h1>
-    <p class="text-foreground/70">
+  <section class="my-20 w-full flex justify-center items-center flex-col px-4">
+    <h1 class="font-medium lg:text-7xl text-3xl mb-3 text-center">
+      Welcome to Wave
+    </h1>
+    <p class="text-foreground/70 text-center">
       A currated collection of UI components and themes.
     </p>
 
     <div
-      class="mt-8 border border-border py-2 px-6 pr-2 rounded-full flex items-center gap-8 w-full max-w-lg justify-between bg-gray-50"
+      class="mt-8 flex-col md:flex-row border border-border py-2 px-6 pr-2 rounded-lg md:rounded-full flex items-center md:gap-8 gap-2 w-full max-w-lg justify-between bg-gray-50"
     >
       <p class="text-foreground">Am I missing something?</p>
 
@@ -36,7 +38,7 @@ const q = Astro.url.searchParams.get("q");
 
     <Separator className="my-10" />
 
-    <section class="w-full max-w-screen-2xl mx-auto mt-10">
+    <section class="w-full max-w-screen-2xl mx-auto mt-10 px-4">
       <div class="flex flex-col">
         <div class="flex gap-2 flex-wrap">
           {tags.map((tag) => <Filter val={tag} q={q} />)}
