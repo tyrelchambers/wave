@@ -1,0 +1,70 @@
+---
+import { Badge } from "@/components/ui/badge";
+import ItemImage from "./item-image.astro";
+import NoItemImage from "./no-item-image.astro";
+import type { Data } from "@/data/data";
+
+interface Props {
+  item: Data;
+}
+const { item } = Astro.props;
+---
+
+<a
+  href={item.url}
+  class="hover:scale-[102%] hover:shadow-md transition-all duration-300 w-full block bg-white overflow-hidden rounded-2xl"
+>
+  <div
+    class="relative h-[135px] px-10 flex items-center image-wrapper overflow-hidden"
+  >
+    {
+      item.image ? (
+        <ItemImage image={item.image} />
+      ) : (
+        <NoItemImage name={item.name} />
+      )
+    }
+  </div>
+
+  <div class="content p-8 bg-gray-50 h-full">
+    <h2 class="font-medium text-xl">{item.name}</h2>
+    <p class="text-foreground/50 mt-3 text-sm">{item.description}</p>
+    <div class="flex flex-wrap gap-2 mt-4">
+      {
+        item.tags.length > 0 &&
+          item.tags.map((tag) => (
+            // @ts-expect-error
+            <Badge className="rounded-full" variant="default">
+              {tag}
+            </Badge>
+          ))
+      }
+    </div>
+
+    <div class="flex flex-wrap gap-2 mt-4">
+      {
+        item.integrations &&
+          item.integrations.length > 0 &&
+          item.integrations?.map((int) => (
+            // @ts-expect-error
+            <Badge className="rounded-full" variant="secondary">
+              {int}
+            </Badge>
+          ))
+      }
+    </div>
+
+    <div class="flex flex-wrap gap-2 mt-4">
+      {
+        item.plans &&
+          item.plans.length > 0 &&
+          item.plans?.map((price) => (
+            // @ts-expect-error
+            <Badge className="rounded-full" variant="outline">
+              {price}
+            </Badge>
+          ))
+      }
+    </div>
+  </div>
+</a>
