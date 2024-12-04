@@ -12,13 +12,13 @@ const { item } = Astro.props;
 
 <a
   href={item.url}
-  class="hover:scale-[102%] hover:shadow-md transition-all duration-300 w-full block bg-white overflow-hidden rounded-2xl"
+  class="hover:scale-[102%] hover:shadow-md transition-all duration-300 w-full block bg-gray-50 overflow-hidden rounded-2xl"
 >
   <div class="relative h-[225px] flex image-wrapper overflow-hidden">
     {item.image && <ItemImage image={item.image} />}
   </div>
 
-  <div class="content p-8 bg-gray-50 h-full">
+  <div class="content p-8 h-full -mt-20 z-30 relative">
     <h2 class="font-medium text-xl mt-4">{item.name}</h2>
     <p class="text-foreground/50 mt-3 text-sm">{item.description}</p>
     <div class="flex flex-wrap gap-2 mt-4">
