@@ -57,4 +57,4 @@ jobs:
           passphrase: ${{ secrets.SSH_PASSPHRASE }}
           key: ${{ secrets.SSH_KEY }}
           script: |
-            kubectl rollout restart waverepo-deploy
+            kubectl rollout restart deployment waverepo-deploy
