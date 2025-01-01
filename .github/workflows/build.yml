@@ -49,3 +49,12 @@ jobs:
           docker buildx imagetools create \
             --tag ghcr.io/${{ github.repository_owner }}/waverepo \
             ghcr.io/${{ github.repository_owner }}/waverepo
+      - name: Deploy docker images to server
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          passphrase: ${{ secrets.SSH_PASSPHRASE }}
+          key: ${{ secrets.SSH_KEY }}
+          script: |
+            kubectl rollout restart waverepo-deploy
